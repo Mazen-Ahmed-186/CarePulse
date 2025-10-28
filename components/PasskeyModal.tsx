@@ -8,17 +8,18 @@ import {
     AlertDialog,
     AlertDialogContent,
     AlertDialogHeader,
-    AlerDialogTitle,
+    AlertDialogTitle,
     AlertDialogDescription,
-    AlerDialogFooter,
+    AlertDialogFooter,
     AlertDialogAction,
-} from "@/components/ui/aler-dialog"
+} from "@/components/ui/alert-dialog"
 
 import {
     InputOTP,
     InputOTPGroup,
     InputOTPSlot,
 } from "@/components/ui/input-otp"
+import {AlertDialogOverlay} from "@radix-ui/react-alert-dialog";
 
 const PasskeyModal = () => {
     const [open, setOpen] = useState(true)
@@ -65,7 +66,7 @@ const PasskeyModal = () => {
         <AlertDialog open={open} onOpenChange={setOpen}>
             <AlertDialogContent className={"shad-alert-dialog"}>
                 <AlertDialogHeader>
-                    <AlerDialogTitle className={"flex items-start justify-between"}>
+                    <AlertDialogTitle className={"flex items-start justify-between"}>
                         Admin Access Verification
                         <Image
                             src={"/assets/icons/close.svg"}
@@ -75,7 +76,7 @@ const PasskeyModal = () => {
                             onClick={() => closeModal()}
                             className={"cursor-pointer"}
                         />
-                    </AlerDialogTitle>
+                    </AlertDialogTitle>
                     <AlertDialogDescription>
                         To access the admin page, please enter the passkey.
                     </AlertDialogDescription>
@@ -96,11 +97,11 @@ const PasskeyModal = () => {
                     {error && <p className={"shad-error text-[14px] leading-[18px] font-normal mt-4 flex justify-center"}>{error}</p>}
                 </div>
 
-                <AlerDialogFooter>
+                <AlertDialogFooter>
                     <AlertDialogAction onClick={(e) => validatePasskey(e)} className={"shad-primary-btn w-full"}>
                         Enter Admin Passkey
                     </AlertDialogAction>
-                </AlerDialogFooter>
+                </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
     )
