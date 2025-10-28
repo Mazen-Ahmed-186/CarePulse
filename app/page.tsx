@@ -1,10 +1,15 @@
 import Image from "next/image";
 import PatientForm from "@/components/forms/PatientForm";
 import Link from "next/link";
+import PasskeyModal from "@/components/PasskeyModal";
 
-const Home = () => {
+const Home = ({ searchParams }: SearchParamProps) => {
+    const isAdmin = searchParams.admin === "true";
+
     return (
         <div className={"flex h-screen max-h-screen"}>
+            {isAdmin && <PasskeyModal />}
+
             <section className={"hide-scrollbar my-auto relative flex-1 overflow-y-auto px-[5%]"}>
                 <div className={"hidden h-full max-w-[496px] object-cover md:block"}>
                     <Image
